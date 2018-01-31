@@ -34,14 +34,16 @@ public class SolveMaze {
          * Feel free to adjust this number if you experiment with other mazes.
          */
         for (int step = 0; step < 1000000; step++) {
-            System.out.println();
-            System.out.println(step);
-            System.out.println(maze);
-            maze.turnRight();
-            while (maze.canMove() == false) {
-                maze.turnLeft();
+            while (maze.isFinished() == false){
+                System.out.println();
+                System.out.println(step);
+                System.out.println(maze);
+                maze.turnRight();
+                while (maze.canMove() == false) {
+                    maze.turnLeft();
+                }
+                maze.move();
             }
-            maze.move();
         }
 
         if (maze.isFinished()) {
